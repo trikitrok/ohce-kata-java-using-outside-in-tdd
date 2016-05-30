@@ -64,4 +64,22 @@ public class OhceTest {
 
         context.assertIsSatisfied();
     }
+
+    @Test
+    public void expresses_that_it_likes_palindromes() {
+        Phrase palindrome = new Phrase("larutanatural");
+        context.checking(new Expectations() {{
+            oneOf(phraseReader).read();
+            will(returnValue(palindrome));
+
+            ignoring(greetingsSelector);
+
+            oneOf(notifier).notifyPalindromesRock();
+            ignoring(notifier);
+        }});
+
+        ohce.run();
+
+        context.assertIsSatisfied();
+    }
 }
