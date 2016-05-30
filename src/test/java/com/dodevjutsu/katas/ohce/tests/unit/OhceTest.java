@@ -31,7 +31,8 @@ public class OhceTest {
     @Test
     public void greets_the_user() {
         context.checking(new Expectations() {{
-            ignoring(phraseReader);
+            oneOf(phraseReader).read();
+            will(returnValue(new Phrase("not used")));
 
             oneOf(greetingsSelector).greetingFor(userName);
             will(returnValue(greeting));

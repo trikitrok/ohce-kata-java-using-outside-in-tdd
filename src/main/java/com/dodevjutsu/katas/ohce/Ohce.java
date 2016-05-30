@@ -22,6 +22,8 @@ public class Ohce {
 
         Phrase input = phraseReader.read();
 
-        notifier.notifyReversedPhrase(new Phrase("alom alom"));
+        Phrase reversed = input.reverse();
+
+        notifier.notifyReversedPhrase(reversed);
     }
 }
