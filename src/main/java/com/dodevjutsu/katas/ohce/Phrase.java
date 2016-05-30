@@ -7,6 +7,11 @@ public class Phrase {
         this.content = content;
     }
 
+    public Phrase reverse() {
+        String reversed = new StringBuilder(content).reverse().toString();
+        return new Phrase(reversed);
+    }
+
     @Override
     public String toString() {
         return "Phrase{" +
