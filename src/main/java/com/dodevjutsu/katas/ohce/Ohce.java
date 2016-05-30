@@ -17,11 +17,17 @@ public class Ohce {
     }
 
     public void run() {
-        notifier.greetUser(greetingsSelector.greetingFor(userName));
-
+        greetUser();
         reversePhrases();
+        sayByeToUser();
+    }
 
+    private void sayByeToUser() {
         notifier.sayByeTo(userName);
+    }
+
+    private void greetUser() {
+        notifier.greetUser(greetingsSelector.greetingFor(userName));
     }
 
     private void reversePhrases() {
