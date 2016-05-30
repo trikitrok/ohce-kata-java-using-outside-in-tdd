@@ -15,6 +15,7 @@ public class OhceTest {
     private Ohce ohce;
     private String userName;
     private String greeting;
+    private Phrase stopPhrase;
 
 
     @Before
@@ -23,6 +24,7 @@ public class OhceTest {
         greetingsSelector = context.mock(GreetingsSelector.class);
         phraseReader = context.mock(PhraseReader.class);
         notifier = context.mock(Notifier.class);
+        stopPhrase = new Phrase("Stop!");
         userName = "Koko";
         greeting = "¡Buenas días Koko!";
         ohce = new Ohce(userName, greetingsSelector, phraseReader, notifier);
@@ -32,7 +34,10 @@ public class OhceTest {
     public void greets_the_user() {
         context.checking(new Expectations() {{
             atLeast(1).of(phraseReader).read();
-            will(returnValue(new Phrase("not used")));
+            will(onConsecutiveCalls(
+                returnValue(new Phrase("not used")),
+                returnValue(stopPhrase)
+            ));
 
             oneOf(greetingsSelector).greetingFor(userName);
             will(returnValue(greeting));
@@ -52,7 +57,10 @@ public class OhceTest {
         Phrase reversedPhrase = new Phrase("alom alom");
         context.checking(new Expectations() {{
             atLeast(1).of(phraseReader).read();
-            will(returnValue(nonPalindromePhrase));
+            will(onConsecutiveCalls(
+                returnValue(nonPalindromePhrase),
+                returnValue(stopPhrase)
+            ));
 
             ignoring(greetingsSelector);
 
@@ -70,7 +78,10 @@ public class OhceTest {
         Phrase palindrome = new Phrase("larutanatural");
         context.checking(new Expectations() {{
             atLeast(1).of(phraseReader).read();
-            will(returnValue(palindrome));
+            will(onConsecutiveCalls(
+                returnValue(palindrome),
+                returnValue(stopPhrase)
+            ));
 
             ignoring(greetingsSelector);
 
