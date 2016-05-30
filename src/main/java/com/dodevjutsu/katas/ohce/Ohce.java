@@ -19,5 +19,9 @@ public class Ohce {
 
     public void run() {
         notifier.greetUser(greetingsSelector.greetingFor(userName));
+
+        Phrase input = phraseReader.read();
+
+        notifier.notifyReversedPhrase(new Phrase("alom alom"));
     }
 }

@@ -1,9 +1,6 @@
 package com.dodevjutsu.katas.ohce.tests.unit;
 
-import com.dodevjutsu.katas.ohce.GreetingsSelector;
-import com.dodevjutsu.katas.ohce.Notifier;
-import com.dodevjutsu.katas.ohce.Ohce;
-import com.dodevjutsu.katas.ohce.PhraseReader;
+import com.dodevjutsu.katas.ohce.*;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
@@ -40,6 +37,26 @@ public class OhceTest {
             will(returnValue(greeting));
 
             oneOf(notifier).greetUser(greeting);
+            ignoring(notifier);
+        }});
+
+        ohce.run();
+
+        context.assertIsSatisfied();
+    }
+
+    @Test
+    public void reverses_non_palindrome_phrases() {
+        Phrase nonPalindromePhrase = new Phrase("mola mola");
+        Phrase reversedPhrase = new Phrase("alom alom");
+        context.checking(new Expectations() {{
+            oneOf(phraseReader).read();
+            will(returnValue(nonPalindromePhrase));
+
+            ignoring(greetingsSelector);
+
+            oneOf(notifier).notifyReversedPhrase(reversedPhrase);
+            ignoring(notifier);
         }});
 
         ohce.run();
