@@ -25,16 +25,14 @@ public class Ohce {
     private void reversePhrases() {
         Phrase input = phraseReader.read();
 
+        if(shouldStop(input)) {
+            notifier.sayByeTo(userName);
+        }
+
         notifier.notifyReversedPhrase(input.reverse());
 
         if(input.isPalindrome()) {
             notifier.notifyPalindromesRock();
-        }
-
-        input = phraseReader.read();
-
-        if(shouldStop(input)) {
-            notifier.sayByeTo(userName);
         }
     }
 

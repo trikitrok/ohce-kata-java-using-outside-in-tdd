@@ -96,12 +96,10 @@ public class OhceTest {
 
     @Test
     public void says_bye_when_is_told_to_stop() {
-        Phrase anyNonStopPhrase = new Phrase("ññññññ");
         Phrase stopPhrase = new Phrase("Stop!");
         context.checking(new Expectations() {{
-            exactly(2).of(phraseReader).read();
+            oneOf(phraseReader).read();
             will(onConsecutiveCalls(
-                returnValue(anyNonStopPhrase),
                 returnValue(stopPhrase)
             ));
 
