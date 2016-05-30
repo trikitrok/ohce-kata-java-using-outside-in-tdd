@@ -113,4 +113,30 @@ public class OhceTest {
 
         context.assertIsSatisfied();
     }
+
+    @Test
+    public void keeps_asking_for_phrases_until_is_told_to_stop() {
+        Phrase aNonStopPhrase = new Phrase("aho");
+        Phrase anotherNonStopPhrase = new Phrase("ños");
+        Phrase stopPhrase = new Phrase("Stop!");
+        context.checking(new Expectations() {{
+            exactly(3).of(phraseReader).read();
+            will(onConsecutiveCalls(
+                returnValue(aNonStopPhrase),
+                returnValue(anotherNonStopPhrase),
+                returnValue(stopPhrase)
+            ));
+
+            ignoring(greetingsSelector);
+
+            oneOf(notifier).notifyReversedPhrase(new Phrase("oha"));
+            oneOf(notifier).notifyReversedPhrase(new Phrase("soñ"));
+            oneOf(notifier).sayByeTo(userName);
+            ignoring(notifier);
+        }});
+
+        ohce.run();
+
+        context.assertIsSatisfied();
+    }
 }

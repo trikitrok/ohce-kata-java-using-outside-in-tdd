@@ -27,12 +27,32 @@ public class Ohce {
 
         if(shouldStop(input)) {
             notifier.sayByeTo(userName);
+            return;
         }
 
         notifier.notifyReversedPhrase(input.reverse());
 
         if(input.isPalindrome()) {
             notifier.notifyPalindromesRock();
+        }
+
+        input = phraseReader.read();
+
+        if(shouldStop(input)) {
+            notifier.sayByeTo(userName);
+            return;
+        }
+
+        notifier.notifyReversedPhrase(input.reverse());
+
+        if(input.isPalindrome()) {
+            notifier.notifyPalindromesRock();
+        }
+
+        input = phraseReader.read();
+
+        if(shouldStop(input)) {
+            notifier.sayByeTo(userName);
         }
     }
 
