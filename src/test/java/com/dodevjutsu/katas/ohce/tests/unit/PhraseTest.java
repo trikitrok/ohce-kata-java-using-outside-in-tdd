@@ -13,4 +13,10 @@ public class PhraseTest {
 
         assertThat(phrase.reverse(), is(new Phrase("okok")));
     }
+
+    @Test
+    public void knows_if_it_is_a_palindrome() {
+        assertThat(new Phrase("koko").isPalindrome(), is(false));
+        assertThat(new Phrase("ana").isPalindrome(), is(true));
+    }
 }

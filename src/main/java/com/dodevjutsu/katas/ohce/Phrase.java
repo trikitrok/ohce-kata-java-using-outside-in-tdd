@@ -12,6 +12,10 @@ public class Phrase {
         return new Phrase(reversed);
     }
 
+    public boolean isPalindrome() {
+        return this.equals(this.reverse());
+    }
+
     @Override
     public String toString() {
         return "Phrase{" +
