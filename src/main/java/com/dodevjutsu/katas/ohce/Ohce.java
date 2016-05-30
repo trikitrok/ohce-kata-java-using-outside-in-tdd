@@ -29,5 +29,11 @@ public class Ohce {
         if(input.isPalindrome()) {
             notifier.notifyPalindromesRock();
         }
+
+        input = phraseReader.read();
+
+        if(input.equals(new Phrase("Stop!"))) {
+            notifier.sayByeTo(userName);
+        }
     }
 }

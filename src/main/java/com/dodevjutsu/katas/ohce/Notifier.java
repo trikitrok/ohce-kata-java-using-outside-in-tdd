@@ -6,4 +6,6 @@ public interface Notifier {
     void notifyReversedPhrase(Phrase phrase);
 
     void notifyPalindromesRock();
+
+    void sayByeTo(String userName);
 }

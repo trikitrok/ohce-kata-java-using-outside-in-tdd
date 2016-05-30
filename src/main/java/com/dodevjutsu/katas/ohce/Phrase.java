@@ -31,7 +31,6 @@ public class Phrase {
         Phrase phrase = (Phrase) o;
 
         return content != null ? content.equals(phrase.content) : phrase.content == null;
-
     }
 
     @Override

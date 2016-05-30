@@ -31,7 +31,7 @@ public class OhceTest {
     @Test
     public void greets_the_user() {
         context.checking(new Expectations() {{
-            oneOf(phraseReader).read();
+            atLeast(1).of(phraseReader).read();
             will(returnValue(new Phrase("not used")));
 
             oneOf(greetingsSelector).greetingFor(userName);
@@ -51,7 +51,7 @@ public class OhceTest {
         Phrase nonPalindromePhrase = new Phrase("mola mola");
         Phrase reversedPhrase = new Phrase("alom alom");
         context.checking(new Expectations() {{
-            oneOf(phraseReader).read();
+            atLeast(1).of(phraseReader).read();
             will(returnValue(nonPalindromePhrase));
 
             ignoring(greetingsSelector);
@@ -69,12 +69,34 @@ public class OhceTest {
     public void expresses_that_it_likes_palindromes() {
         Phrase palindrome = new Phrase("larutanatural");
         context.checking(new Expectations() {{
-            oneOf(phraseReader).read();
+            atLeast(1).of(phraseReader).read();
             will(returnValue(palindrome));
 
             ignoring(greetingsSelector);
 
             oneOf(notifier).notifyPalindromesRock();
+            ignoring(notifier);
+        }});
+
+        ohce.run();
+
+        context.assertIsSatisfied();
+    }
+
+    @Test
+    public void says_bye_when_is_told_to_stop() {
+        Phrase anyNonStopPhrase = new Phrase("ññññññ");
+        Phrase stopPhrase = new Phrase("Stop!");
+        context.checking(new Expectations() {{
+            exactly(2).of(phraseReader).read();
+            will(onConsecutiveCalls(
+                returnValue(anyNonStopPhrase),
+                returnValue(stopPhrase)
+            ));
+
+            ignoring(greetingsSelector);
+
+            oneOf(notifier).sayByeTo(userName);
             ignoring(notifier);
         }});
 
