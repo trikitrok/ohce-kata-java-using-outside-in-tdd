@@ -22,9 +22,7 @@ public class Ohce {
 
         Phrase input = phraseReader.read();
 
-        Phrase reversed = input.reverse();
-
-        notifier.notifyReversedPhrase(reversed);
+        notifier.notifyReversedPhrase(input.reverse());
 
         if(input.isPalindrome()) {
             notifier.notifyPalindromesRock();
@@ -32,8 +30,12 @@ public class Ohce {
 
         input = phraseReader.read();
 
-        if(input.equals(new Phrase("Stop!"))) {
+        if(shouldStop(input)) {
             notifier.sayByeTo(userName);
         }
+    }
+
+    private boolean shouldStop(Phrase input) {
+        return input.equals(new Phrase("Stop!"));
     }
 }
