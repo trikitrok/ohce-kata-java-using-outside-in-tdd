@@ -20,40 +20,24 @@ public class Ohce {
         notifier.greetUser(greetingsSelector.greetingFor(userName));
 
         reversePhrases();
+
+        notifier.sayByeTo(userName);
     }
 
     private void reversePhrases() {
         Phrase input = phraseReader.read();
 
-        if(shouldStop(input)) {
-            notifier.sayByeTo(userName);
+        if (shouldStop(input)) {
             return;
         }
 
         notifier.notifyReversedPhrase(input.reverse());
 
-        if(input.isPalindrome()) {
+        if (input.isPalindrome()) {
             notifier.notifyPalindromesRock();
         }
 
-        input = phraseReader.read();
-
-        if(shouldStop(input)) {
-            notifier.sayByeTo(userName);
-            return;
-        }
-
-        notifier.notifyReversedPhrase(input.reverse());
-
-        if(input.isPalindrome()) {
-            notifier.notifyPalindromesRock();
-        }
-
-        input = phraseReader.read();
-
-        if(shouldStop(input)) {
-            notifier.sayByeTo(userName);
-        }
+        reversePhrases();
     }
 
     private boolean shouldStop(Phrase input) {
