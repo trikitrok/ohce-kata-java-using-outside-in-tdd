@@ -10,7 +10,6 @@ public class Ohce {
     }
 
     public Ohce(String userName, GreetingsSelector greetingsSelector, PhraseReader phraseReader, Notifier notifier) {
-
         this.userName = userName;
         this.greetingsSelector = greetingsSelector;
         this.phraseReader = phraseReader;
@@ -20,6 +19,10 @@ public class Ohce {
     public void run() {
         notifier.greetUser(greetingsSelector.greetingFor(userName));
 
+        reversePhrases();
+    }
+
+    private void reversePhrases() {
         Phrase input = phraseReader.read();
 
         notifier.notifyReversedPhrase(input.reverse());
