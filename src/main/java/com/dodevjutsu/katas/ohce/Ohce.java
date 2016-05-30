@@ -26,7 +26,7 @@ public class Ohce {
 
         notifier.notifyReversedPhrase(reversed);
 
-        if(input.equals(new Phrase("larutanatural"))) {
+        if(input.isPalindrome()) {
             notifier.notifyPalindromesRock();
         }
     }
