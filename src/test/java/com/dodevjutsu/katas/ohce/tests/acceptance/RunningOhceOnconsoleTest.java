@@ -4,7 +4,6 @@ import com.dodevjutsu.katas.ohce.*;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class RunningOhceOnconsoleTest {

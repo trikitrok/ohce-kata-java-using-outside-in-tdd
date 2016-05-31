@@ -13,8 +13,10 @@ public class DayPeriodGreetingSelector implements GreetingsSelector {
         if(6 <= hour && hour < 12)
         {
             return String.format("¡Buenos días %s!", userName);
+        } else if(12 <= hour && hour < 20) {
+            return String.format("¡Buenos tardes %s!", userName);
         }
 
-        return String.format("¡Buenos tardes %s!", userName);
+        return String.format("¡Buenos noches %s!", userName);
     }
 }
