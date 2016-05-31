@@ -8,6 +8,12 @@ public class Ohce {
     private Notifier notifier;
 
     public Ohce(String userName, Console console, Clock clock) {
+        this(
+            userName,
+            new DayPeriodGreetingSelector(clock),
+            new ConsolePhraseReader(console),
+            new ConsoleNotifier(console)
+        );
     }
 
     public Ohce(String userName, GreetingsSelector greetingsSelector, PhraseReader phraseReader, Notifier notifier) {

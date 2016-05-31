@@ -10,6 +10,6 @@ public class DayPeriodGreetingSelector implements GreetingsSelector {
     @Override
     public String greetingFor(String userName) {
         clock.hour();
-        return "¡Buenos días Juanito!";
+        return String.format("¡Buenos días %s!", userName);
     }
 }
