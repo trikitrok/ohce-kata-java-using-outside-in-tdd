@@ -1,8 +1,6 @@
 package com.dodevjutsu.katas.ohce.tests.acceptance;
 
-import com.dodevjutsu.katas.ohce.Clock;
-import com.dodevjutsu.katas.ohce.Console;
-import com.dodevjutsu.katas.ohce.Ohce;
+import com.dodevjutsu.katas.ohce.*;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
@@ -20,7 +18,12 @@ public class RunningOhceOnconsoleTest {
         context = new Mockery();
         console = context.mock(Console.class);
         clock = context.mock(Clock.class);
-        ohce = new Ohce("Pedro", console, clock);
+        ohce = new Ohce(
+            "Pedro",
+                    new DayPeriodGreetingSelector(clock),
+                    new ConsolePhraseReader(console),
+                    new ConsoleNotifier(console)
+                );
     }
 
     @Test
