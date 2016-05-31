@@ -6,7 +6,12 @@ public class Ohce {
     private PhraseReader phraseReader;
     private Notifier notifier;
 
-    public Ohce(String stopPhraseContent, GreetingsSelector greetingsSelector, PhraseReader phraseReader, Notifier notifier) {
+    public Ohce(
+        String stopPhraseContent,
+        GreetingsSelector greetingsSelector,
+        PhraseReader phraseReader,
+        Notifier notifier
+    ) {
         this.stopPhrase = new Phrase(stopPhraseContent);
         this.greetingsSelector = greetingsSelector;
         this.phraseReader = phraseReader;
