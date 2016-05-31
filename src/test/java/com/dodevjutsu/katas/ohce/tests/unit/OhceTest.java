@@ -24,10 +24,11 @@ public class OhceTest {
         greetingsSelector = context.mock(GreetingsSelector.class);
         phraseReader = context.mock(PhraseReader.class);
         notifier = context.mock(Notifier.class);
-        stopPhrase = new Phrase("Stop!");
+        String stopPhraseContent = "Stop!";
+        stopPhrase = new Phrase(stopPhraseContent);
         userName = "Koko";
         greeting = "¡Buenas días Koko!";
-        ohce = new Ohce(userName, greetingsSelector, phraseReader, notifier);
+        ohce = new Ohce(userName, stopPhraseContent, greetingsSelector, phraseReader, notifier);
     }
 
     @Test

@@ -20,10 +20,11 @@ public class RunningOhceOnconsoleTest {
         clock = context.mock(Clock.class);
         ohce = new Ohce(
             "Pedro",
-                    new DayPeriodGreetingSelector(clock),
-                    new ConsolePhraseReader(console),
-                    new ConsoleNotifier(console)
-                );
+            "Stop!",
+            new DayPeriodGreetingSelector(clock),
+            new ConsolePhraseReader(console),
+            new ConsoleNotifier(console)
+        );
     }
 
     @Test
