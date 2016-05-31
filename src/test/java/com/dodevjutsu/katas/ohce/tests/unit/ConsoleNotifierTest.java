@@ -55,4 +55,15 @@ public class ConsoleNotifierTest {
 
         context.assertIsSatisfied();
     }
+
+    @Test
+    public void says_bye_to_the_user() {
+        context.checking(new Expectations() {{
+            oneOf(console).print("Adios Lolo");
+        }});
+
+        notifier.sayByeTo("Lolo");
+
+        context.assertIsSatisfied();
+    }
 }

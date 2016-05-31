@@ -24,6 +24,6 @@ public class ConsoleNotifier implements Notifier {
 
     @Override
     public void sayByeTo(String userName) {
-
+        console.print("Adios " + userName);
     }
 }
