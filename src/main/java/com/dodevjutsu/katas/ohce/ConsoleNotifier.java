@@ -9,7 +9,7 @@ public class ConsoleNotifier implements Notifier {
 
     @Override
     public void greetUser(String greeting) {
-
+        console.print(greeting);
     }
 
     @Override

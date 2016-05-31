@@ -32,4 +32,16 @@ public class ConsoleNotifierTest {
 
         context.assertIsSatisfied();
     }
+
+    @Test
+    public void greets_the_user() {
+        final String anyGreeting = "sth";
+        context.checking(new Expectations() {{
+            oneOf(console).print(anyGreeting);
+        }});
+
+        notifier.greetUser(anyGreeting);
+
+        context.assertIsSatisfied();
+    }
 }
