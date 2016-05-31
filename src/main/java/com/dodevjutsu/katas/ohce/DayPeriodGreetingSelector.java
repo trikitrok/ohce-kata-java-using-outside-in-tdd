@@ -9,14 +9,41 @@ public class DayPeriodGreetingSelector implements GreetingsSelector {
 
     @Override
     public String greetingFor(String userName) {
-        int hour = clock.hour();
-        if(6 <= hour && hour < 12)
-        {
-            return String.format("¡Buenos días %s!", userName);
-        } else if(12 <= hour && hour < 20) {
-            return String.format("¡Buenos tardes %s!", userName);
+        DayPeriod dayPeriod = dayPeriod();
+        return String.format(dayPeriod.greetingFormat(), userName);
+    }
+
+    private DayPeriod dayPeriod() {
+        return DayPeriod.at(clock.hour());
+    }
+
+    private enum DayPeriod {
+        MORNING{
+            @Override
+            public String greetingFormat() {
+                return "¡Buenos días %s!";
+            }
+        }, AFTERNOON {
+            @Override
+            public String greetingFormat() {
+                return "¡Buenos tardes %s!";
+            }
+        }, NIGHT{
+            @Override
+            public String greetingFormat() {
+                return "¡Buenos noches %s!";
+            }
+        };
+
+        public static DayPeriod at(int hour) {
+            if (6 <= hour && hour < 12) {
+                return MORNING;
+            } else if (12 <= hour && hour < 20) {
+                return AFTERNOON;
+            }
+            return NIGHT;
         }
 
-        return String.format("¡Buenos noches %s!", userName);
+        abstract public String greetingFormat();
     }
 }
