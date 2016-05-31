@@ -37,7 +37,7 @@ public class RunningOhceOnconsoleTest {
                 returnValue("Stop!")
             ));
 
-            oneOf(console).print("¡Buenas días Pedro!");
+            oneOf(console).print("¡Buenos días Pedro!");
             oneOf(console).print("aloh");
             oneOf(console).print("oto");
             oneOf(console).print("¡Bonita palabra!");
