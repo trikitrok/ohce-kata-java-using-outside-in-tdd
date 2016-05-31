@@ -44,4 +44,15 @@ public class ConsoleNotifierTest {
 
         context.assertIsSatisfied();
     }
+
+    @Test
+    public void notifies_that_palindromes_rock() {
+        context.checking(new Expectations() {{
+            oneOf(console).print("¡Bonita palabra!");
+        }});
+
+        notifier.notifyPalindromesRock();
+
+        context.assertIsSatisfied();
+    }
 }
