@@ -25,18 +25,37 @@ public class DayPeriodGreetingSelectorTest {
     }
 
     @Test
-    public void selects_morning_greetings(){
+    public void selects_morning_greetings() {
         context.checking(new Expectations() {{
-            oneOf(clock).hour();
+            exactly(3).of(clock).hour();
             will(onConsecutiveCalls(
-                returnValue(6)
+                returnValue(6),
+                returnValue(10),
+                returnValue(11)
             ));
         }});
 
-        assertThat(
-            greetingsSelector.greetingFor("Juanito"),
-            is("¡Buenos días Juanito!")
-        );
+        assertThat( greetingsSelector.greetingFor("Juanito"), is("¡Buenos días Juanito!"));
+        assertThat( greetingsSelector.greetingFor("Juanito"), is("¡Buenos días Juanito!"));
+        assertThat( greetingsSelector.greetingFor("Juanito"), is("¡Buenos días Juanito!"));
+
+        context.assertIsSatisfied();
+    }
+
+    @Test
+    public void selects_afternoon_greetings() {
+        context.checking(new Expectations() {{
+            exactly(3).of(clock).hour();
+            will(onConsecutiveCalls(
+                returnValue(12),
+                returnValue(16),
+                returnValue(19)
+            ));
+        }});
+
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos tardes Juanito!"));
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos tardes Juanito!"));
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos tardes Juanito!"));
 
         context.assertIsSatisfied();
     }
