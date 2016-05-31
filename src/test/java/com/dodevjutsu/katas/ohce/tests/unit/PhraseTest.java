@@ -1,6 +1,6 @@
 package com.dodevjutsu.katas.ohce.tests.unit;
 
-import com.dodevjutsu.katas.ohce.Phrase;
+import com.dodevjutsu.katas.ohce.core.Phrase;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -1,4 +1,4 @@
-package com.dodevjutsu.katas.ohce;
+package com.dodevjutsu.katas.ohce.core;
 
 public class Phrase {
     private final String content;

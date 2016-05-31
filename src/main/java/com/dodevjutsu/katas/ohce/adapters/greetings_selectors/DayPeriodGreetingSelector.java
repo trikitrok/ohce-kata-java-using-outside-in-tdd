@@ -1,4 +1,7 @@
-package com.dodevjutsu.katas.ohce;
+package com.dodevjutsu.katas.ohce.adapters.greetings_selectors;
+
+import com.dodevjutsu.katas.ohce.core.GreetingsSelector;
+import com.dodevjutsu.katas.ohce.infrastructure.Clock;
 
 public class DayPeriodGreetingSelector implements GreetingsSelector {
     private final Clock clock;

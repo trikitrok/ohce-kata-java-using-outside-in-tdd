@@ -1,6 +1,6 @@
 package com.dodevjutsu.katas.ohce.tests.unit;
 
-import com.dodevjutsu.katas.ohce.*;
+import com.dodevjutsu.katas.ohce.core.*;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
