@@ -71,4 +71,22 @@ public class RunningOhceOnconsoleTest {
 
         context.assertIsSatisfied();
     }
+
+    @Test
+    public void running_during_the_night() {
+        context.checking(new Expectations() {{
+            oneOf(clock).hour();
+            will(returnValue(23));
+
+            oneOf(console).read();
+            will(returnValue("Stop!"));
+
+            oneOf(console).print("¡Buenos noches Pedro!");
+            oneOf(console).print("Adios Pedro");
+        }});
+
+        ohce.run();
+
+        context.assertIsSatisfied();
+    }
 }
