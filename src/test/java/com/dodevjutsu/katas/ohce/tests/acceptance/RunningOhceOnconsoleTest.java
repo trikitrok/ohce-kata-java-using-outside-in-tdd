@@ -69,7 +69,7 @@ public class RunningOhceOnconsoleTest {
             oneOf(console).read();
             will(returnValue("Stop!"));
 
-            oneOf(console).print("¡Buenos tardes Pedro!");
+            oneOf(console).print("¡Buenas tardes Pedro!");
             oneOf(console).print("Adios Pedro");
         }});
 
@@ -87,7 +87,7 @@ public class RunningOhceOnconsoleTest {
             oneOf(console).read();
             will(returnValue("Stop!"));
 
-            oneOf(console).print("¡Buenos noches Pedro!");
+            oneOf(console).print("¡Buenas noches Pedro!");
             oneOf(console).print("Adios Pedro");
         }});
 

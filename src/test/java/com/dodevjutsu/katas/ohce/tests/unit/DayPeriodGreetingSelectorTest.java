@@ -53,9 +53,9 @@ public class DayPeriodGreetingSelectorTest {
             ));
         }});
 
-        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos tardes Juanito!"));
-        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos tardes Juanito!"));
-        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos tardes Juanito!"));
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenas tardes Juanito!"));
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenas tardes Juanito!"));
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenas tardes Juanito!"));
 
         context.assertIsSatisfied();
     }
@@ -71,9 +71,9 @@ public class DayPeriodGreetingSelectorTest {
             ));
         }});
 
-        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos noches Juanito!"));
-        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos noches Juanito!"));
-        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenos noches Juanito!"));
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenas noches Juanito!"));
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenas noches Juanito!"));
+        assertThat(greetingsSelector.greetingFor("Juanito"), is("¡Buenas noches Juanito!"));
 
         context.assertIsSatisfied();
     }

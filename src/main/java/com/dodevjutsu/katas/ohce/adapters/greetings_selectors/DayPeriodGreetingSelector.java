@@ -29,12 +29,12 @@ public class DayPeriodGreetingSelector implements GreetingsSelector {
         }, AFTERNOON {
             @Override
             public String greetingFormat() {
-                return "¡Buenos tardes %s!";
+                return "¡Buenas tardes %s!";
             }
         }, NIGHT {
             @Override
             public String greetingFormat() {
-                return "¡Buenos noches %s!";
+                return "¡Buenas noches %s!";
             }
         };
 
