@@ -16,6 +16,10 @@ public class Phrase {
         return this.equals(this.reverse());
     }
 
+    public String content() {
+        return content;
+    }
+
     @Override
     public String toString() {
         return "Phrase{" +
