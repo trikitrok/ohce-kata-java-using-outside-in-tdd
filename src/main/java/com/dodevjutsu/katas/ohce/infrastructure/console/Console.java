@@ -1,4 +1,4 @@
-package com.dodevjutsu.katas.ohce.infrastructure;
+package com.dodevjutsu.katas.ohce.infrastructure.console;
 
 public interface Console {
     String read();

@@ -4,8 +4,8 @@ import com.dodevjutsu.katas.ohce.adapters.greetings_selectors.DayPeriodGreetingS
 import com.dodevjutsu.katas.ohce.adapters.notifiers.ConsoleNotifier;
 import com.dodevjutsu.katas.ohce.adapters.phrase_readers.ConsolePhraseReader;
 import com.dodevjutsu.katas.ohce.core.Ohce;
-import com.dodevjutsu.katas.ohce.infrastructure.Clock;
-import com.dodevjutsu.katas.ohce.infrastructure.Console;
+import com.dodevjutsu.katas.ohce.infrastructure.clock.Clock;
+import com.dodevjutsu.katas.ohce.infrastructure.console.Console;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;

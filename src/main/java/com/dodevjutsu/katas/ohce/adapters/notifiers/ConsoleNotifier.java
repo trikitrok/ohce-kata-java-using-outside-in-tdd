@@ -2,7 +2,7 @@ package com.dodevjutsu.katas.ohce.adapters.notifiers;
 
 import com.dodevjutsu.katas.ohce.core.Notifier;
 import com.dodevjutsu.katas.ohce.core.Phrase;
-import com.dodevjutsu.katas.ohce.infrastructure.Console;
+import com.dodevjutsu.katas.ohce.infrastructure.console.Console;
 
 public class ConsoleNotifier implements Notifier {
     private final Console console;

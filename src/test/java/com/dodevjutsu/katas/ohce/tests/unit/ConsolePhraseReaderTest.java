@@ -1,6 +1,6 @@
 package com.dodevjutsu.katas.ohce.tests.unit;
 
-import com.dodevjutsu.katas.ohce.infrastructure.Console;
+import com.dodevjutsu.katas.ohce.infrastructure.console.Console;
 import com.dodevjutsu.katas.ohce.adapters.phrase_readers.ConsolePhraseReader;
 import com.dodevjutsu.katas.ohce.core.Phrase;
 import com.dodevjutsu.katas.ohce.core.PhraseReader;
