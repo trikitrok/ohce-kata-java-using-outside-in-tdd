@@ -1,31 +1,29 @@
 package com.dodevjutsu.katas.ohce;
 
 public class Ohce {
-    private String userName;
     private final Phrase stopPhrase;
     private GreetingsSelector greetingsSelector;
     private PhraseReader phraseReader;
     private Notifier notifier;
 
-    public Ohce(String userName, String stopPhraseContent, GreetingsSelector greetingsSelector, PhraseReader phraseReader, Notifier notifier) {
-        this.userName = userName;
+    public Ohce(String stopPhraseContent, GreetingsSelector greetingsSelector, PhraseReader phraseReader, Notifier notifier) {
         this.stopPhrase = new Phrase(stopPhraseContent);
         this.greetingsSelector = greetingsSelector;
         this.phraseReader = phraseReader;
         this.notifier = notifier;
     }
 
-    public void run() {
-        greetUser();
+    public void run(String userName) {
+        greetUser(userName);
         reversePhrases();
-        sayByeToUser();
+        sayByeToUser(userName);
     }
 
-    private void sayByeToUser() {
+    private void sayByeToUser(String userName) {
         notifier.sayByeTo(userName);
     }
 
-    private void greetUser() {
+    private void greetUser(String userName) {
         notifier.greetUser(greetingsSelector.greetingFor(userName));
     }
 

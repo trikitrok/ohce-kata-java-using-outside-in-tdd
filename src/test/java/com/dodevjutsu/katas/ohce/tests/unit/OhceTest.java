@@ -28,7 +28,7 @@ public class OhceTest {
         stopPhrase = new Phrase(stopPhraseContent);
         userName = "Koko";
         greeting = "¡Buenas días Koko!";
-        ohce = new Ohce(userName, stopPhraseContent, greetingsSelector, phraseReader, notifier);
+        ohce = new Ohce(stopPhraseContent, greetingsSelector, phraseReader, notifier);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class OhceTest {
             ignoring(notifier);
         }});
 
-        ohce.run();
+        ohce.run(userName);
 
         context.assertIsSatisfied();
     }
@@ -69,7 +69,7 @@ public class OhceTest {
             ignoring(notifier);
         }});
 
-        ohce.run();
+        ohce.run(userName);
 
         context.assertIsSatisfied();
     }
@@ -90,7 +90,7 @@ public class OhceTest {
             ignoring(notifier);
         }});
 
-        ohce.run();
+        ohce.run(userName);
 
         context.assertIsSatisfied();
     }
@@ -110,7 +110,7 @@ public class OhceTest {
             ignoring(notifier);
         }});
 
-        ohce.run();
+        ohce.run(userName);
 
         context.assertIsSatisfied();
     }
@@ -136,7 +136,7 @@ public class OhceTest {
             ignoring(notifier);
         }});
 
-        ohce.run();
+        ohce.run(userName);
 
         context.assertIsSatisfied();
     }

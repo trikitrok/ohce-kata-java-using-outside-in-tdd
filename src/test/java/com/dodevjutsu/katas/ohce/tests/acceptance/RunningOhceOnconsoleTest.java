@@ -12,15 +12,16 @@ public class RunningOhceOnconsoleTest {
     private Console console;
     private Clock clock;
     private Ohce ohce;
+    private String stopPhraseContent;
 
     @Before
     public void setUp() {
         context = new Mockery();
         console = context.mock(Console.class);
         clock = context.mock(Clock.class);
+        stopPhraseContent = "Stop!";
         ohce = new Ohce(
-            "Pedro",
-            "Stop!",
+            stopPhraseContent,
             new DayPeriodGreetingSelector(clock),
             new ConsolePhraseReader(console),
             new ConsoleNotifier(console)
@@ -49,7 +50,7 @@ public class RunningOhceOnconsoleTest {
             oneOf(console).print("Adios Pedro");
         }});
 
-        ohce.run();
+        ohce.run("Pedro");
 
         context.assertIsSatisfied();
     }
@@ -67,7 +68,7 @@ public class RunningOhceOnconsoleTest {
             oneOf(console).print("Adios Pedro");
         }});
 
-        ohce.run();
+        ohce.run("Pedro");
 
         context.assertIsSatisfied();
     }
@@ -85,7 +86,7 @@ public class RunningOhceOnconsoleTest {
             oneOf(console).print("Adios Pedro");
         }});
 
-        ohce.run();
+        ohce.run("Pedro");
 
         context.assertIsSatisfied();
     }
