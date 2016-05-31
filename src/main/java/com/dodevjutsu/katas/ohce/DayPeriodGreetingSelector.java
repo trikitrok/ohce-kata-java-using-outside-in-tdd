@@ -18,7 +18,7 @@ public class DayPeriodGreetingSelector implements GreetingsSelector {
     }
 
     private enum DayPeriod {
-        MORNING{
+        MORNING {
             @Override
             public String greetingFormat() {
                 return "¡Buenos días %s!";
@@ -28,7 +28,7 @@ public class DayPeriodGreetingSelector implements GreetingsSelector {
             public String greetingFormat() {
                 return "¡Buenos tardes %s!";
             }
-        }, NIGHT{
+        }, NIGHT {
             @Override
             public String greetingFormat() {
                 return "¡Buenos noches %s!";
@@ -36,12 +36,20 @@ public class DayPeriodGreetingSelector implements GreetingsSelector {
         };
 
         public static DayPeriod at(int hour) {
-            if (6 <= hour && hour < 12) {
+            if (isDuringMorning(hour)) {
                 return MORNING;
-            } else if (12 <= hour && hour < 20) {
+            } else if (isDuringAfternoon(hour)) {
                 return AFTERNOON;
             }
             return NIGHT;
+        }
+
+        private static boolean isDuringAfternoon(int hour) {
+            return 12 <= hour && hour < 20;
+        }
+
+        private static boolean isDuringMorning(int hour) {
+            return 6 <= hour && hour < 12;
         }
 
         abstract public String greetingFormat();
